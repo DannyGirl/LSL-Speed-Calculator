@@ -1,7 +1,7 @@
 integer myListener;
-integer distance;
-integer time;
-integer speed;
+float distance;
+float time;
+float speed;
 key user;
 integer count = 0;
 default
@@ -23,19 +23,19 @@ default
         if (count == 0)
         {
             ++count;
-            distance = (integer)message;
+            distance = (float)message;
             llInstantMessage(user, "Distance = " + (string)distance);
             llSleep(0.5);
             llInstantMessage(user, "What time is taken? (numbers only)");
         }
         else
         {
-            time = (integer)message;
+            time = (float)message;
             llInstantMessage(user, "Time = " + (string)time);
             llSleep(0.5);
             llInstantMessage(user, "Calculating...");
             llSleep(1.0);
-            speed = distance/time;
+            speed = (integer)distance/time;
             llInstantMessage(user, " Speed = " + (string)speed + " (unit of distance) per (unit of time)");
             llSleep(1.0);
             llResetScript();
